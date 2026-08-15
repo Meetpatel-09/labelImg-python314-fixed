@@ -186,8 +186,10 @@ class MainWindow(QMainWindow, WindowMixin):
 
         self.canvas = Canvas(parent=self)
         self.canvas.zoomRequest.connect(self.zoom_request)
-        self.canvas.lightRequest.connect(self.light_request)
-        self.canvas.set_drawing_shape_to_square(settings.get(SETTING_DRAW_SQUARE, False))
+
+        self.canvas.set_drawing_shape_to_square(
+            settings.get(SETTING_DRAW_SQUARE, False)
+        )
 
         scroll = QScrollArea()
         scroll.setWidget(self.canvas)
